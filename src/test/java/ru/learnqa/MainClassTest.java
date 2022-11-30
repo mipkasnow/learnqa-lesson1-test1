@@ -2,8 +2,7 @@ package ru.learnqa;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MainClassTest {
 
@@ -23,5 +22,24 @@ public class MainClassTest {
         int classNumber = this.mainClass.getClassNumber();
 
         assertTrue(classNumber > boundaryVal, "Число " + classNumber + " меньше числа " + boundaryVal);
+    }
+
+    @Test
+    public void testGetClassString(){
+        String classString = this.mainClass.getClassString();
+        String hello = "Hello";
+
+        boolean containsNormalCase = classString.contains(hello);
+        boolean containsLowerCase = classString.contains(hello.toLowerCase());
+
+        if (containsNormalCase){
+            assertTrue(containsNormalCase);
+        }
+        else if(containsLowerCase){
+            assertTrue(containsLowerCase);
+        }
+        else {
+            fail("Строка \"" + classString + "\" не содержит в себе подстроку \"" + hello + "\"");
+        }
     }
 }
