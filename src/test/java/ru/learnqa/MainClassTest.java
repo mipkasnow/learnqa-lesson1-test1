@@ -3,6 +3,7 @@ package ru.learnqa;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainClassTest {
 
@@ -14,5 +15,13 @@ public class MainClassTest {
         int expectedNumber = 14;
 
         assertEquals(getNumber, expectedNumber, "Полученное число " + getNumber + " не равно " + expectedNumber);
+    }
+
+    @Test
+    public void testGetClassNumber() {
+        int boundaryVal = 45;
+        int classNumber = this.mainClass.getClassNumber();
+
+        assertTrue(classNumber > boundaryVal, "Число " + classNumber + " меньше числа " + boundaryVal);
     }
 }
